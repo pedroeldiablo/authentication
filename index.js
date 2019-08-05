@@ -5,6 +5,10 @@ import morgan from 'morgan';
 const app = express();
 
 //App Setup
+app.use(morgan('combined'));
+app.use(bodyParser.json({type: '*/*'}));
+
+//comment
 
 
 //Server Setup
