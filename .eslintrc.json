@@ -1,0 +1,22 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "extends": ["airbnb", "eslint:recommended", "plugin:node/recommended"],
+    "plugins": ["prettier", "babel"],
+    "rules": {
+        "object-property-newline": "off",
+        "multiline": true,
+        "minItems": null,
+        "no-unused-vars": "warn",
+        "no-unexpected-multiline": "off",
+        "no-console": "off",
+        "func-names": "off",
+        "no-process-exit": "off",
+        "node/no-unsupported-features/es-syntax": [{
+            "version": ">=8.10.0",
+            "ignores": []
+        }]
+    }
+}

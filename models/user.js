@@ -1,9 +1,15 @@
-import { Schema,  mongoose } from 'mongoose';
+import mongoose, {
+    Schema
+} from 'mongoose';
 
 //Define our model
 const userSchema = new Schema({
-    email: { type: String, unique: true, lowercase: true },
-    password: String
+    email: {
+        type: String,
+        unique: true,
+        lowercase: true,
+    },
+    password: String,
 });
 
 //Create the model class

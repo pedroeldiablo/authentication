@@ -1,16 +1,27 @@
+import bodyParser from 'body-parser';
 import express from 'express';
 import http from 'http';
-import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
 import morgan from 'morgan';
 import router from './router';
+
 const app = express();
 
-//App Setup
+// DB Setup
+mongoose.connect('mongodb://localhost:auth/auth', {
+    useNewUrlParser: true,
+});
+
+// App Setup
 app.use(morgan('combined'));
-app.use(bodyParser.json({type: '*/*'}));
+app.use(
+    bodyParser.json({
+        type: '*/*',
+    }),
+);
 router(app);
 
-//Server Setup
+// Server Setup
 const port = process.env.PORT || 3090;
 const server = http.createServer(app);
 server.listen(port);
