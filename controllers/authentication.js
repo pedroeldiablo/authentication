@@ -1,7 +1,7 @@
-// const User = require('../models/user');
-
 import jwt from 'jwt-simple';
 import ModelClass from '../models/user';
+
+const User = ModelClass;
 
 const config = require('../config');
 
@@ -13,8 +13,14 @@ function tokenForUser(user) {
     }, config.secret);
 }
 
+exports.signin = function(req, res, next) {
+    // User has already had email and password auth'd 
+    //and we just need to give them a token
+    res.send({
+        token: tokenForUser(req.user)
+    });
 
-const User = ModelClass;
+};
 
 exports.signup = function(req, res, next) {
     const email = req.body.email;
